@@ -1,6 +1,8 @@
 :root {
-    --main-color: #eab070;
-    --nav-left-margin: 1rem;
+    --main-color: #404c8df7;
+    --main-active-color: #4f5a93f7;
+    --nav-separation: 1rem;
+    --header-home-container-heigth:3rem;
 }
 
 *, *::after, *::before {
@@ -13,10 +15,10 @@ body {
     grid-template-areas: 'header' 'main' 'footer';
 }
 header {
-    width: 100%;
+    width: 100vw;
     grid-area: header;
     text-align: center;
-    position: fixed;
+    position: sticky;
     background: var(--main-color);
 }
 main {
@@ -30,9 +32,10 @@ footer {
 
 /* Header Home */
 .header-home-container {
-    height: 3rem;
+    height: var(--header-home-container-heigth);
 }
 .header-home {
+    color: whitesmoke;
     display: flex;
     align-items: center;
     height: 100%;
@@ -42,13 +45,15 @@ footer {
     top: 0;
     width: 100%;
 }
+
+/* Nav Burguer Menu */
 .nav-label-burguer {
     display: flex;
     position: absolute;
     height: 100%;
     top: 0;
     left: 0;
-    margin-left: var(--nav-left-margin);
+    margin-left: var(--nav-separation);
     align-items: center;
 }
 .nav-label-burguer span,
@@ -78,22 +83,35 @@ footer {
 
 /* Header Nav Menu*/
 .nav-menu {
-    top: 100%;
+    top: var(--header-home-container-heigth);
+    min-height: calc(100% - var(--header-home-container-heigth));
     width: 100%;
-    position: absolute;
+    position: fixed;
     text-align: left;
     background: var(--main-color);
-    display: none;
+    transform: translate(-100%, 0);
+    transition: transform 150ms ease-in;
+}
+.nav-checkbox:checked ~ .nav-menu {
+    transition: transform 150ms ease-out;
+    transform: translate(0, 0);
 }
 .nav-menu ul {
-    margin: var(--nav-left-margin);
+    height: 100%;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
-.nav-checkbox:checked ~ .nav-menu {
-    display: block;
+.nav-item a {
+    width: 100%;
+    display: inline-block;
+    padding: var(--nav-separation);
+    font-size: 1rem;
+    color: whitesmoke;
+    text-decoration: none;
 }
-.nav-item {
+.nav-item a:active {
+    background-color: var(--main-active-color);
 }
 
 /* Main */

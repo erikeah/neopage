@@ -1,0 +1,27 @@
+<section title="gallery" class="gallery">
+    {{ with .Get "title" }}
+    <h2>{{ . }}</h2>
+    {{ end }} {{ with split (.Get "images") " " }}
+    <div class="gallery-items-wrapper">
+        {{ $imagesLen := . | len }}
+        {{ range $index, $value := . }}
+        <div class="gallery-item-container">
+            {{ if eq $index 0 }}
+            <label class="gallery-item-label" for="gallery-item-1"></label>
+            <input type="radio" name="radio-btn" id="gallery-item-0" checked />
+            <img class="gallery-item" src="{{ . }}" />
+            {{ else if eq $index (sub $imagesLen 1) }}
+            <label class="gallery-item-label" for="gallery-item-0"></label>
+            <input type="radio" name="radio-btn" id="gallery-item-{{ $index }}" />
+            <img class="gallery-item" src="{{ . }}" />
+            {{ else }}
+            <label class="gallery-item-label" for="gallery-item-{{ add $index 1 }}">
+            </label>
+            <input type="radio" name="radio-btn" id="gallery-item-{{ $index }}" />
+            <img class="gallery-item" src="{{ . }}" />
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+</section>

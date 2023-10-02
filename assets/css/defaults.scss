@@ -1,0 +1,11 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+html {
+    height: 100vh;
+}
+html * {
+    @include default;
+    font-family: $default-font-family;
+}

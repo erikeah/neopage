@@ -1,0 +1,32 @@
+.article-container {
+    display: grid;
+    gap: 1em;
+    grid-template-areas: 
+    'top'
+    'gallery'
+    'metadata'
+    'content'
+}
+.article-title {
+    grid-area: top;
+}
+.content-container {
+    gap: 1em;
+    grid-area: content;
+}
+.metadata-container {
+    grid-area: metadata;
+    display: flex;
+    flex-flow: wrap;
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+    .article-container {
+        grid-template-areas: 
+        'top top'
+        'gallery gallery'
+        'metadata content';
+        grid-template-columns: min-content auto;
+    }
+}

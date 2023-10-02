@@ -1,0 +1,17 @@
+<nav class="nav-menu">
+    <div class="nav-inner-switcher">
+        {{- partial "components/button.html" (dict "Text" "x" "For" "main-nav-switcher") -}}
+    </div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        {{ if .Site.Menus.main.ByWeight }}
+        {{ range .Site.Menus.main.ByWeight}}
+        <li><a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a></li>
+        {{ end }}
+        {{ else }}
+        {{ range .Site.Sections }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</nav>

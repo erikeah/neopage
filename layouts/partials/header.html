@@ -1,14 +1,10 @@
-<div class="header-home-container">
-    <span class="header-home">
-        {{ .Site.Title }}
+<div class="main-nav-switcher-container">
+    {{- partial "components/button.html" (dict "Text" "=" "For" "main-nav-switcher") -}}
+</div>
+<div class="">
+    <span class="">
+        <a href="/">{{ .Site.Title }}</a>
     </span>
 </div>
-<label for="nav-checkbox" class="nav-label-burguer"><span></span></label>
-<input type="checkbox" id="nav-checkbox" class="nav-checkbox">
-<nav class="nav-menu">
-    <ul>
-        {{ range .Site.Menus.main.ByWeight}}
-        <li class="nav-item"><a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a></li>
-        {{ end }}
-    </ul>
-</nav>
+<input type="checkbox" id="main-nav-switcher" class="hide nav-switcher">
+{{- partial "nav.html" . -}}

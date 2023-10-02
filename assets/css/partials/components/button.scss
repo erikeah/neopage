@@ -1,0 +1,9 @@
+.button {
+    display: inline-block;
+}
+.default-button {
+    @include default-interactive;
+    padding: $regular-margin/2 $regular-margin;
+    border: $default-foreground-color 2px solid;
+    border-radius: 10px;
+}

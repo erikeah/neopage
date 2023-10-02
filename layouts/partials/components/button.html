@@ -1,0 +1,7 @@
+{{ if .For }}
+<label for="{{ .For }}">
+{{ else }}
+<label>
+{{ end }}
+        <span class="default-button button"> {{ with .Text }}{{ . }}{{ end }} </span>
+</label>

@@ -1,0 +1,31 @@
+@mixin default {
+    background-color: $default-background-color;
+    color: $default-foreground-color;
+}
+
+@mixin interactive {
+    cursor: pointer;
+}
+
+@mixin default-interactive {
+    @include default;
+    &:hover, &:active {
+        @include interactive;
+        color: $default-background-color;
+        background-color: $default-foreground-color;
+    }
+}
+
+@mixin primary {
+    background-color: $primary-background-color;
+    color: $primary-foreground-color;
+}
+
+@mixin primary-interactive {
+    @include primary;
+    &:hover, &:active {
+        @include interactive;
+        color: $primary-background-color;
+        background-color: $primary-foreground-color;
+    }
+}

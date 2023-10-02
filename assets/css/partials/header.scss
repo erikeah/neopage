@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    flex-flow: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin: $regular-margin;
+    * {
+        align-self: center;
+    }
+}
+

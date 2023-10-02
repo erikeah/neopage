@@ -1,0 +1,16 @@
+{{ define "title" -}}
+{{ .Title | title }}
+{{- end }}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<hr>
+{{ .Content }}
+<ul>
+    {{- range.Pages }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <img src="{{ .Params.thumbnail }}">
+    </li>
+    {{- end }}
+</ul>
+{{ end }}

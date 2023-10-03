@@ -1,32 +1,25 @@
 {{ define "main" }}
 <article class="article-container">
     <h1 class="article-title">{{ .Title }}</h1>
-
-    <section class="content-container">
-        {{ .Content }}
-    </section>
-
+    {{ if .Content }}
+    <section class="content-container">{{ .Content }}</section>
+    {{ end }}
     <div class="metadata-container">
         {{ with .Params.role }}
         <section class="role-container metadata-item">
             <h2 class="role">Role</h2>
             <p>{{ . }}</p>
         </section>
-        {{ end }}
-
-        {{ with .Params.stack }}
+        {{ end }} {{ with .Params.stack }}
         <section class="stack-container metadata-item">
             <h2 class="stack">Stack</h2>
             <ul>
                 {{ range . }}
-                <li>
-                    {{ . }}
-                </li>
+                <li>{{ . }}</li>
                 {{ end }}
             </ul>
         </section>
         {{ end }}
     </div>
-
 </article>
 {{ end }}

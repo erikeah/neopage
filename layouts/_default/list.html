@@ -1,16 +1,15 @@
-{{ define "title" -}}
-{{ .Title | title }}
-{{- end }}
-{{ define "main" }}
+{{ define "title" -}} {{ .Title | title }} {{- end }} {{ define "main" }}
 <h1>{{ .Title }}</h1>
-<hr>
-{{ .Content }}
-<ul>
-    {{- range.Pages }}
-    <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <img src="{{ .Params.thumbnail }}">
-    </li>
-    {{- end }}
-</ul>
+<hr />
+{{ if .Content }}<section title="{{ .Title }}-summary">{{ .Content }}</section>{{ end }}
+<section title="{{ .Title }}-articles">
+    <ul>
+        {{- range.Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <img src="{{ .Params.thumbnail }}" />
+        </li>
+        {{- end }}
+    </ul>
+</section>
 {{ end }}

@@ -9,3 +9,10 @@ html * {
     @include default;
     font-family: $default-font-family;
 }
+
+main {
+    margin: $regular-margin * 2;
+    section {
+        margin: $regular-margin;
+    }
+}

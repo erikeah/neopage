@@ -16,3 +16,10 @@ main {
         margin: $regular-margin;
     }
 }
+
+img {
+    padding: $regular-margin;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+}

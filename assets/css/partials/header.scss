@@ -4,6 +4,10 @@ header {
     box-sizing: border-box;
     justify-content: space-between;
     margin: $regular-margin;
+    .site-title {
+        position: relative;
+        z-index: 1;
+    }
     * {
         align-self: center;
     }

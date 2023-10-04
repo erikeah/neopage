@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     margin: 0;
 }
@@ -10,6 +12,11 @@ html * {
     font-family: $default-font-family;
 }
 
+body {
+    max-width: $body-max-width;
+    margin: auto;
+}
+
 main {
     margin: $regular-margin * 2;
     section {
@@ -18,8 +25,14 @@ main {
 }
 
 img {
-    padding: $regular-margin;
+    margin: auto;
     width: 100%;
     max-width: 720px;
     height: auto;
+    display: block;
+}
+
+ul,
+ol {
+    margin: $regular-margin / 2;
 }

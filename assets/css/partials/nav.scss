@@ -1,44 +1,49 @@
 .nav-menu {
     left: 0;
     top: 0;
-    display: flex;
     position: fixed;
     height: 100vh;
-    width: 100%;
-    align-items: center;
+    width: 100vw;
     transform: translate(-100%, 0);
     transition: transform 150ms ease-in;
-    .nav-inner-switcher {
-        position: absolute;
-        top: $regular-margin;
-        left: $regular-margin;
-    }
-    ul {
-        padding: 0;
+    padding: $regular-margin;
+    .nav-position {
         width: 100%;
-        margin: $regular-margin;
-        li {
-            list-style: none;
-            a {
-                @include default-interactive;
-                display: inline-block;
-                padding: $regular-margin/2 $regular-margin;
-                text-decoration: none;
-                height: 100%;
-                width: 100%;
-                border-top: $default-foreground-color 2px solid;
-                border-left: $default-foreground-color 2px solid;
-                border-right: $default-foreground-color 2px solid;
+        max-width: $body-max-width;
+        height: 100%;
+        .nav-inner-switcher {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        ul {
+            margin: $regular-margin * 2 auto;
+            padding: 0;
+            max-width: $body-max-width - $body-max-width/3;
+            
+            li {
+                list-style: none;
+                a {
+                    @include default-interactive;
+                    display: inline-block;
+                    padding: $regular-margin/2 $regular-margin;
+                    text-decoration: none;
+                    height: 100%;
+                    width: 100%;
+                    border-top: $default-foreground-color 2px solid;
+                    border-left: $default-foreground-color 2px solid;
+                    border-right: $default-foreground-color 2px solid;
+                }
             }
-        }
-        li:first-child a {
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-        }
-        li:last-child a {
-            border-bottom: $default-foreground-color 2px solid;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
+            li:first-child a {
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+            li:last-child a {
+                border-bottom: $default-foreground-color 2px solid;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
         }
     }
 }
@@ -46,4 +51,12 @@
 .nav-switcher:checked + .nav-menu {
     transform: translate(0, 0);
     transition: transform 250ms ease-out;
+}
+
+@media only screen and (min-width: $tablet-size) {
+    .nav-menu {
+        .nav-position {
+            margin: auto;
+        }
+    }
 }

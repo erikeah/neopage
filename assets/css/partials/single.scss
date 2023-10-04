@@ -1,28 +1,11 @@
-.article-container {
-    display: grid;
-    grid-template-areas:
-        "top"
-        "metadata"
-        "content";
-}
-.article-title {
-    grid-area: top;
-}
-.content-container {
-    grid-area: content;
-}
 .metadata-container {
-    grid-area: metadata;
     display: flex;
     flex-flow: column;
 }
 
-/* Desktop */
-@media only screen and (min-width: 768px) {
-    .article-container {
-        grid-template-areas:
-            "top top"
-            "metadata content";
-        grid-template-columns: 300px auto;
+@media only screen and (min-width: $tablet-size) {
+    .metadata-container {
+        flex-flow: row-reverse;
+        justify-content: start;
     }
 }

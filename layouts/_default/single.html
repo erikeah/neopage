@@ -3,7 +3,7 @@
     <h1 class="article-title">{{ .Title }}</h1>
     {{ if .Content }}
     <section class="content-container">{{ .Content }}</section>
-    {{ end }}
+    {{ end }} {{ if (or (isset .Params "role") (isset .Params "stack"))}}
     <div class="metadata-container">
         {{ with .Params.role }}
         <section class="role-container metadata-item">
@@ -21,5 +21,6 @@
         </section>
         {{ end }}
     </div>
+    {{ end }}
 </article>
 {{ end }}
